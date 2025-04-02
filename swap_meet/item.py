@@ -1,7 +1,7 @@
 import uuid
 
 class Item:
-    # generate random id's
+    # generate random id's using uuid4
     def __init__(self, id=None, condition =0):
         if id is None:
             self.id = uuid.uuid4().int
@@ -9,13 +9,13 @@ class Item:
             self.id = id
         self.condition = condition
 
-    
     def get_category(self):
         return self.__class__.__name__
     
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
     
+    # Choose item descriptions based on condition
     def condition_description(self):
         if self.condition >= 5:
             return "Mint!"

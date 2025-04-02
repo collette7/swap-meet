@@ -1,6 +1,7 @@
 class Vendor:
+    # Set up inventory
     def __init__(self, inventory = None):
-        if inventory == None:
+        if inventory is None:
             inventory = []
         self.inventory = inventory
         
@@ -24,6 +25,7 @@ class Vendor:
                 return item
         return None
     
+    #Check both inventories for items, swap items
     def swap_items(self, other_vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
