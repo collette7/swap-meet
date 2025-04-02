@@ -48,3 +48,35 @@ class Vendor:
         return self.swap_items(
             other_vendor, my_first_item, their_first_item
         )
+    # Get items by category 
+    def get_by_category(self, category):
+        matching_items = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                matching_items.append(item)
+        return matching_items
+    
+    # Get the item with the best condition in a specific category 
+    def get_best_by_category(self, category):
+        matching_items = self.get_by_category(category)
+        if not matching_items:
+            return None
+            
+        best_item = matching_items[0]
+        for item in matching_items:
+            if item.condition > best_item.condition:
+                best_item = item
+        return best_item
+    
+    # Swap best items by category
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        if not self.inventory or not other_vendor.inventory:
+            return False
+            
+        their_best = other_vendor.get_best_by_category(my_priority)
+        my_best = self.get_best_by_category(their_priority)
+        
+        if not their_best or not my_best:
+            return False
+        
+        return self.swap_items(other_vendor, my_best, their_best)
