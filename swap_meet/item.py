@@ -5,10 +5,6 @@ class Item:
     def __init__(self, id=None):
         if id is None:
             self.id = uuid.uuid4().int
-            # random_num = ""
-            # for i in range(32):
-            #     random_num += str(random.randint(0, 9))
-            # self.id = int(random_num)
         else:
             self.id = id
     
