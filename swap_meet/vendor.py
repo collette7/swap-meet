@@ -28,10 +28,11 @@ class Vendor:
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
         
-        self.inventory.remove(my_item)
+        # start swaping
+        self.remove(my_item)
         other_vendor.add(my_item)
 
-        self.inventory.add(their_item)
+        self.add(their_item)
         other_vendor.remove(their_item)
 
         return True

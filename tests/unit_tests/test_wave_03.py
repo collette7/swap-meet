@@ -38,7 +38,7 @@ def test_swap_items_returns_true():
     assert item_d not in jolie.inventory
     assert item_e in jolie.inventory
     assert item_b in jolie.inventory
-    assert result
+    assert result == True
 
 # @pytest.mark.skip
 def test_swap_items_when_my_item_is_missing_returns_false():
@@ -130,8 +130,11 @@ def test_swap_items_from_their_empty_returns_false():
     nobodys_item = Item()
 
     result = fatimah.swap_items(jolie, item_b, nobodys_item)
+    assert len(fatimah.inventory) == 3
+    assert len(jolie.inventory) == 0
+    assert not result
 
-    raise Exception("Complete this test according to comments below.")
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
