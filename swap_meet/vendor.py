@@ -12,8 +12,7 @@ class Vendor:
     def remove(self, item):
         if item not in self.inventory:
             return False
-        if item in self.inventory:
-            self.inventory.remove(item)
+        self.inventory.remove(item)
         return item
     
     # Search through the vendor's inventory for an item with a matching id
