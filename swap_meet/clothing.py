@@ -6,4 +6,4 @@ class Clothing(Item):
         self.fabric = fabric
 
     def __str__(self):
-        return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
+        return f"{super().__str__()} It is made from {self.fabric} fabric."
